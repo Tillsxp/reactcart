@@ -1,8 +1,8 @@
-
+import Shoppinglist from "./Shoppinglist";
 function App() {
   return (
     <>
-    {/* Code... */}
+    <Shoppinglist/>
     </>
   );
 }
