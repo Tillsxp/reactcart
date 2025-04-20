@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from './Item';
+import './shoppinglist.css';
 
 export default function Shoppinglist () {
     const item = [
@@ -35,7 +36,7 @@ export default function Shoppinglist () {
     );
     return(
         <>
-        <h4>Ikea list</h4>
+        <h1>Ikea list</h1>
         <ul>
             {listItems}
         </ul>

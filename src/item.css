@@ -1,0 +1,22 @@
+li{
+    text-align: center;
+    background-color:#fff;
+    list-style-type:none;
+    width: 35vw;
+}
+img{
+    width: 25vw;
+}
+.amount-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+}
+button{
+    background-color:#30ff5d;
+    border:none;
+    border-radius: 5px;
+    height: 1.5rem;
+    width: 1.5rem;
+}

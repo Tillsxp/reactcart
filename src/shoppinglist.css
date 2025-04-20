@@ -1,0 +1,12 @@
+body{
+    background-color:#f3ece0;
+    text-align: center;
+}
+ul{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
