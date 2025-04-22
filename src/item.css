@@ -13,10 +13,10 @@ img{
     align-items: center;
     gap:1rem;
 }
-button{
-    background-color:#30ff5d;
-    border:none;
-    border-radius: 5px;
-    height: 1.5rem;
-    width: 1.5rem;
-}
+    .amount-container button{
+        background-color:#30ff5d;
+        border:none;
+        border-radius: 5px;
+        height: 1.5rem;
+        width: 1.5rem;
+    }

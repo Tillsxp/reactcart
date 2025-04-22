@@ -1,7 +1,8 @@
 import React from 'react';
 import Item from './Item';
 import './shoppinglist.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 export default function Shoppinglist () {
     const item = [
         {
@@ -36,7 +37,10 @@ export default function Shoppinglist () {
     );
     return(
         <>
+        <div>
         <h1>Ikea list</h1>
+        <button><FontAwesomeIcon icon={faCartShopping} /></button>
+        </div>
         <ul>
             {listItems}
         </ul>
