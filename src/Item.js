@@ -13,8 +13,8 @@ const [amount, setAmount] = useState(1);
                 <button onClick={() => setAmount((a)  =>  (a > 1 ? a - 1 : a))}>-</button>
                 <p>{amount}</p>
                 <button onClick={() => setAmount((a)=> (a + 1))}>+</button>
-                <button>Add to cart</button>
                 </div>
+                <button className='cart-container'>Add to cart</button>
         </li>
     )
 }

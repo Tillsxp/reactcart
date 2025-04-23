@@ -39,7 +39,7 @@ export default function Shoppinglist () {
         <>
         <div>
         <h1>Ikea list</h1>
-        <button><FontAwesomeIcon icon={faCartShopping} /></button>
+        <button className='cart'><FontAwesomeIcon icon={faCartShopping} /></button>
         </div>
         <ul>
             {listItems}
