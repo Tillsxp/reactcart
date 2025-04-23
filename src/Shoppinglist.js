@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Item from './Item';
 import './shoppinglist.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -26,6 +26,8 @@ export default function Shoppinglist () {
             description: "Oak table with a lot of character"
         }
     ];
+    const [box, setBox] = useState(false);
+    const [styling, setStyling] = useState('cart-box-none');
     const listItems = item.map(item => 
         <Item 
         key={item.name}
@@ -35,13 +37,28 @@ export default function Shoppinglist () {
         />
     
     );
+    function toggleCart(){
+        setBox (prev =>{
+            const newState = !prev;
+            setStyling(newState ? 'cart-box' : 'cart-box-none');
+            return newState;
+        })
+    }
     return(
         <>
         <div>
         <h1>Ikea list</h1>
-        <button className='cart'><FontAwesomeIcon icon={faCartShopping} /></button>
+        <button className='cart' onClick={toggleCart}><FontAwesomeIcon icon={faCartShopping} /></button>
         </div>
-        <ul>
+        <div className={styling}>
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+        <ul className='item-container'>
             {listItems}
         </ul>
         </>
