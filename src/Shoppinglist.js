@@ -28,15 +28,24 @@ export default function Shoppinglist () {
     ];
     const [box, setBox] = useState(false);
     const [styling, setStyling] = useState('cart-box-none');
+    const [cartItems, setCartItems] = useState([]);
+    function handleAddItemToCart(title,amount){
+        setCartItems(prev => [...prev, {title,amount}]);
+        console.log(title, amount);
+    }
     const listItems = item.map(item => 
         <Item 
         key={item.name}
         title={item.name}
         picture={item.picture}
         description={item.description}
+        onAddToCart={handleAddItemToCart}
         />
     
     );
+    const listCartItems = cartItems.map((item, index ) => {
+        return <li key={index}>{item.title} - {item.amount}</li>
+    })
     function toggleCart(){
         setBox (prev =>{
             const newState = !prev;
@@ -44,6 +53,7 @@ export default function Shoppinglist () {
             return newState;
         })
     }
+
     return(
         <>
         <div>
@@ -52,10 +62,7 @@ export default function Shoppinglist () {
         </div>
         <div className={styling}>
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
+                {listCartItems}
             </ul>
         </div>
         <ul className='item-container'>

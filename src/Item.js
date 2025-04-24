@@ -4,6 +4,9 @@ import './item.css';
 export default function Item(props) {
 const [amount, setAmount] = useState(1);
 
+function handleAddItem () {
+    props.onAddToCart(props.title, amount);
+}
     return(
         <li>
                 <h4>{props.title}</h4>
@@ -14,7 +17,7 @@ const [amount, setAmount] = useState(1);
                 <p>{amount}</p>
                 <button onClick={() => setAmount((a)=> (a + 1))}>+</button>
                 </div>
-                <button className='cart-container'>Add to cart</button>
+                <button className='cart-container' onClick={handleAddItem}>Add to cart</button>
         </li>
     )
 }
