@@ -8,7 +8,7 @@ function handleAddItem () {
     props.onAddToCart(props.title, amount);
 }
     return(
-        <li>
+        <li className='item-container'>
                 <h4>{props.title}</h4>
                 <img src={`./images/${props.picture}`} alt={props.title}/>
                 <p>{props.description}</p>

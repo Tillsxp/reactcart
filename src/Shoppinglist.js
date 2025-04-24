@@ -26,13 +26,22 @@ export default function Shoppinglist () {
             description: "Oak table with a lot of character"
         }
     ];
-    const [box, setBox] = useState(false);
     const [styling, setStyling] = useState('cart-box-none');
     const [cartItems, setCartItems] = useState([]);
     function handleAddItemToCart(title,amount){
-        setCartItems(prev => [...prev, {title,amount}]);
-        console.log(title, amount);
-    }
+        setCartItems(prev =>{
+            const existingItem = prev.find(item => item.title === title);
+            setStyling('cart-box');
+
+            if(existingItem){
+                return prev.map(item =>
+                    item.title === title ? {...item, amount: item.amount + amount }: item
+                );
+            }else{ 
+            return [...prev, {title,amount}];
+        }
+    });
+}
     const listItems = item.map(item => 
         <Item 
         key={item.name}
@@ -46,25 +55,23 @@ export default function Shoppinglist () {
     const listCartItems = cartItems.map((item, index ) => {
         return <li key={index}>{item.title} - {item.amount}</li>
     })
-    function toggleCart(){
-        setBox (prev =>{
-            const newState = !prev;
-            setStyling(newState ? 'cart-box' : 'cart-box-none');
-            return newState;
-        })
-    }
+
 
     return(
         <>
         <div>
         <h1>Ikea list</h1>
-        <button className='cart' onClick={toggleCart}><FontAwesomeIcon icon={faCartShopping} /></button>
+        <button className='cart' ><FontAwesomeIcon icon={faCartShopping} /></button>
         </div>
-        <div className={styling}>
+        {cartItems.length > 0 && (
+
+            <div className={styling}>
             <ul>
+                <h4>Cart List</h4>
                 {listCartItems}
             </ul>
         </div>
+        )}
         <ul className='item-container'>
             {listItems}
         </ul>
