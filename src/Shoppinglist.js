@@ -1,33 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Item from './Item';
 import './shoppinglist.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 export default function Shoppinglist () {
-    const item = [
-        {
-            name:"Säbövik",
-            picture:"bed.png",
-            description: "A modern comfortable bed"
-        },
-        {
-            name:"Skogsta",
-            picture:"chair.png",
-            description: "Made out of acacia wood with back support"
-        },
-        {
-            name:"Kivik",
-            picture:"sofa.png",
-            description: "3-seatsofa comfortable sofa"
-        },
-        {
-            name:"Mörbylånga",
-            picture:"table.png",
-            description: "Oak table with a lot of character"
-        }
-    ];
     const [styling, setStyling] = useState('cart-box-none');
+    const [items, setItems] = useState([]);    
     const [cartItems, setCartItems] = useState([]);
+    useEffect(() => {
+        fetch('/item.json')
+        .then(res => res.json())
+        .then(data => setItems(data))
+    }, [])
     function handleAddItemToCart(title,amount){
         setCartItems(prev =>{
             const existingItem = prev.find(item => item.title === title);
@@ -42,7 +26,7 @@ export default function Shoppinglist () {
         }
     });
 }
-    const listItems = item.map(item => 
+    const listItems = items.map(item => 
         <Item 
         key={item.name}
         title={item.name}
