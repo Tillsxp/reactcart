@@ -28,8 +28,10 @@ img{
         width: 1.5rem;
     }
 .cart-container{
-    background-color: #3f85ff;
+    background-color: #ffcc00;
+    padding: 0.5rem;
     border:none;
     border-radius: 3px;
-    color: #fff;
+    color: #0057ac;
+    font-weight: 800;
 }

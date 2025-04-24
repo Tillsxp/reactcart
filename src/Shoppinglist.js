@@ -41,10 +41,10 @@ export default function Shoppinglist () {
 
     return(
         <>
-        <div>
-        <h1>Ikea list</h1>
+        <header>
+        <img className="logo" src="./images/Ikea_logo.svg.png" alt="ikea logo"/>
         <button className='cart' ><FontAwesomeIcon icon={faCartShopping} /></button>
-        </div>
+        </header>
         <Cart cartItems = {cartItems}/>
         <ul className='item-container'>
             {listItems}
