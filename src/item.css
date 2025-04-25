@@ -35,3 +35,6 @@ img{
     color: #0057ac;
     font-weight: 800;
 }
+.cart-container:hover{
+    background-color:#c69f00;
+}

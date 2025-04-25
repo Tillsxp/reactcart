@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Item from './Item';
 import Cart from './Cart';
 import './shoppinglist.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 export default function Shoppinglist () {
     const [items, setItems] = useState([]);    
@@ -13,6 +13,10 @@ export default function Shoppinglist () {
         .then(res => res.json())
         .then(data => setItems(data))
     }, [])
+    
+    function handleRemoveItemToCart(title){
+        setCartItems(prev => prev.filter(item => item.title !== title));
+    }
 
     function handleAddItemToCart(title,amount){
         setCartItems(prev =>{
@@ -45,7 +49,7 @@ export default function Shoppinglist () {
         <img className="logo" src="./images/Ikea_logo.svg.png" alt="ikea logo"/>
         <button className='cart' ><FontAwesomeIcon icon={faCartShopping} /></button>
         </header>
-        <Cart cartItems = {cartItems}/>
+        <Cart cartItems = {cartItems} onRemoveItem ={handleRemoveItemToCart}/>
         <ul className='item-container'>
             {listItems}
         </ul>
