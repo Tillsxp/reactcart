@@ -17,16 +17,18 @@
     background-color: #cfcfcf;
 }
 .cart-box{
-    padding:0px 25vw 0px 25vw;
+    display: flex;
+    justify-content: flex-end;
 }
 .cart-box ul{
     border:1px solid #000000;
     background-color:#fff;
     padding: 1rem;
+    position: absolute;
+    top:6rem;
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     list-style-type:disc;
 }
 .cart-box li{
