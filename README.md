@@ -1,6 +1,6 @@
 # Reactcart
 
-**Reactcart** is a simple beginner project I used to learn React.js. It features an IKEA-themed shopping list where users can add items to a cart.
+**Reactcart** is a simple beginner project I used to learn React.js. It features an IKEA-themed shopping list where users can add and remove items from the cart.
 
 ## Requirements
 
